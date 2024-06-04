@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/vcriateud/static/css/main.b3985924.css",
+    "main.js": "/vcriateud/static/js/main.f94b0056.js",
+    "index.html": "/vcriateud/index.html",
+    "main.b3985924.css.map": "/vcriateud/static/css/main.b3985924.css.map",
+    "main.f94b0056.js.map": "/vcriateud/static/js/main.f94b0056.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3985924.css",
+    "static/js/main.f94b0056.js"
+  ]
+}
