@@ -7,8 +7,7 @@ const Navbar = () => {
         try{
             logoutUser()
             .then((res)=>{
-                doLogout();
-                window.location.href = "/";
+                
             })
             .catch(()=>{
                 alert("Something Went Wrong");
@@ -17,6 +16,8 @@ const Navbar = () => {
         catch(error){
             console.error(error)
         }
+        doLogout();
+        window.location.reload();
     }
   return (
     <header className="bg-white shadow h-14">
