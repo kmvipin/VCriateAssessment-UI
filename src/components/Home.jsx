@@ -1,8 +1,14 @@
 import React from 'react';
 import { FaUpload, FaLock, FaDownload } from 'react-icons/fa';
 import { getUser } from '../authService/auth';
+import CookieConsent from 'react-cookie-consent';
+import { Cookies } from 'react-cookie-consent';
+import { useState, useEffect } from 'react';
 
 const Home = ({setSwitchPage}) => {
+  const [showCookieConsent,setShowCookieConsent] = useState(false);
+  const hostname = window.location.hostname;
+
     const getTitle = () =>{
         const user = getUser();
         if(user == null){
@@ -12,8 +18,22 @@ const Home = ({setSwitchPage}) => {
             return "Welcome Back "+user.name;
         }
     }
+    useEffect(()=>{
+      if(!Cookies.get('CookieConsent')){
+        setShowCookieConsent(true);
+      }
+    },[])
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
+      {showCookieConsent && <CookieConsent
+        debug={true}
+        extraCookieOptions={{ domain: hostname }}
+        style={{ background: "#f1f2f1", color: "black" }}
+        buttonStyle={{ backgroundColor:'#0c3059',color: "white", fontSize: "13px" }}
+        buttonText="OKAY!"
+      >
+        Third Party Cookie Must Be Enable to Authenticate
+      </CookieConsent>}
       <main className="flex-grow container mx-auto px-4 py-16">
         <section className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-6">{getTitle()}</h2>
